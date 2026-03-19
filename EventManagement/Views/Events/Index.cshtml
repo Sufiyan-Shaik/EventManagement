@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EventManagement.Models.Event>
+
+@{
+    ViewData["Title"] = "All Events";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>All Events</h2>
+        <a asp-action="Create" class="btn btn-primary">+ Add New Event</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No events found. Click "Add New Event" to create one.
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Location</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var evt in Model)
+                {
+                    <tr>
+                        <td>@evt.Title</td>
+                        <td>@evt.Description</td>
+                        <td>@evt.Date.ToString("MMM dd, yyyy")</td>
+                        <td>@DateTime.Today.Add(evt.Time).ToString("hh:mm tt")</td>
+                        <td>@evt.Location</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@evt.Id" class="btn btn-sm btn-warning">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@evt.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

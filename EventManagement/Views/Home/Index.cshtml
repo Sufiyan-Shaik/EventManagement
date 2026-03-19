@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+    <!-- hero section -->
+    <div class="p-5 mb-4 rounded-3 text-white" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+        <div class="container-fluid py-3 text-center">
+            <h1 class="display-4 fw-bold">🎉 Event Management</h1>
+            <p class="col-md-8 mx-auto fs-5">Plan, organize and manage your community events all in one place.</p>
+            <a asp-controller="Events" asp-action="Index" class="btn btn-light btn-lg mt-3 fw-bold">View All Events</a>
+        </div>
+    </div>
+
+    <!-- feature cards -->
+    <div class="row mt-4 g-4">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm text-center p-3">
+                <div class="card-body">
+                    <div class="fs-1 mb-3">📅</div>
+                    <h5 class="card-title fw-bold">Create Events</h5>
+                    <p class="card-text text-muted">Easily add new events with title, description, date, time and location.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm text-center p-3">
+                <div class="card-body">
+                    <div class="fs-1 mb-3">✏️</div>
+                    <h5 class="card-title fw-bold">Manage Events</h5>
+                    <p class="card-text text-muted">Edit or delete your events anytime. Stay in full control.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm text-center p-3">
+                <div class="card-body">
+                    <div class="fs-1 mb-3">🔒</div>
+                    <h5 class="card-title fw-bold">Secure Access</h5>
+                    <p class="card-text text-muted">Only registered and logged in users can manage events.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- call to action -->
+    <div class="text-center mt-5 p-4 rounded-3" style="background-color: #f8f9fa;">
+        <h4 class="fw-bold">Ready to get started?</h4>
+        <p class="text-muted">Register an account or login to start managing your events.</p>
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary me-2">Register</a>
+        <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-outline-primary">Login</a>
+    </div>
+</div>
